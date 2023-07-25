@@ -5,6 +5,7 @@ import GlobalStyles from '@mui/joy/GlobalStyles';
 import { CssVarsProvider } from '@mui/joy/styles';
 import customTheme from './theme';
 import './App.css';
+import StatsViewer from './components/StatsViewer';
 
 import PokemonGallery from './components/PokemonGallery'
 
@@ -21,20 +22,11 @@ const Title = styled.h1`
 function App() {
   return (
     <CssVarsProvider disableTransitionOnChange theme={customTheme}>
-      <GlobalStyles
-        styles={{
-          '[data-feather], .feather': {
-            color: 'var(--Icon-color)',
-            margin: 'var(--Icon-margin)',
-            fontSize: 'var(--Icon-fontSize, 20px)',
-            width: '1em',
-            height: '1em',
-          },
-        }}
-      />
+      
       <CssBaseline />
       <AppContainer>
         <Title>Pokemon Search</Title>
+        <StatsViewer></StatsViewer>
         <PokemonGallery></PokemonGallery>
       </AppContainer>
       </CssVarsProvider>

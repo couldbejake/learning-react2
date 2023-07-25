@@ -8,7 +8,8 @@ import React from "react";
 
 const GalleryContainer = styled.div`
 	display: grid;
-    grid-template-columns: repeat(5, 1fr)
+    grid-template-columns: repeat(5, 1fr);
+    overflow: hidden;
 `
 
 
@@ -19,9 +20,15 @@ const Centered = styled.div`
     flex-direction: column;
 `
 
+const PageLegend = styled.p`
+    color: #9c9ca4;
+    font-size: 12px;
+    font-weight: 100;
+`
+
 const PokemonGallery = () => {
     const [offset, setOffset] = React.useState(0);
-    const PAGE_LIMIT = 40;
+    const PAGE_LIMIT = 20;
 
     //$currentPage = ceil( ($startIndex - 1) / $itemsPerPage ) + 1;
     var current_page = Math.ceil((offset - 1) / PAGE_LIMIT ) + 1;
@@ -48,7 +55,7 @@ const PokemonGallery = () => {
             </GalleryContainer>
             <Centered>
                 <GalleryControls nextPage={nextPage} prevPage={prevPage} canNext={canNext} canPrev={canPrev}></GalleryControls>
-                <p>Page {current_page} out of {page_count}</p>
+                <PageLegend>Page {current_page} out of {page_count}</PageLegend>
             </Centered>
         </>
 

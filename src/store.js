@@ -5,12 +5,17 @@ const ITEMS_PER_PAGE = 10;
 
 class Store {
     pokemon = [];
+    selected = null;
     constructor() {
         makeAutoObservable(this);
     }
     setPokemon(pokemon){
         console.log('set pokemon')
         this.pokemon = pokemon;
+    }
+    setSelected(pokemon){
+        console.log('set selected pokemon')
+        this.selected = pokemon
     }
 }
 
